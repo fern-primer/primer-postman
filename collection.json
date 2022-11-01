@@ -1,0 +1,1217 @@
+{
+    "info": {
+        "name": "api",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "variable": [
+        {
+            "key": "origin",
+            "value": "http://localhost:8080",
+            "type": "string"
+        },
+        {
+            "key": "X-API-KEY",
+            "value": "",
+            "type": "string"
+        }
+    ],
+    "item": [
+        {
+            "name": "ClientSessionService",
+            "item": [
+                {
+                    "name": "create",
+                    "request": {
+                        "description": "Creating a client session generates a client token: a temporary key used to initialize Universal Checkout and authenticate it against your account.\nUniversal Checkout automatically retrieves all the settings from the client session and the Dashboard to configure the payment methods and the checkout experience.\n\nNote:\nWhen creating a Client Session, please make sure to provide currencyCode, orderId, and at least one of amount or lineItems.\nIf any of these are not yet available, you can provide them when making the payment request.\nPOST /client-session does not have required fields as all fields are not always known when a client session is created.\nUse PATCH /client-session to update the parameters throughout the checkout session.\n\nClient tokens expire after 24 hours.\n",
+                        "url": {
+                            "raw": "{{origin}}/client-session",
+                            "host": [
+                                "{{origin}}"
+                            ],
+                            "path": [
+                                "client-session"
+                            ],
+                            "query": []
+                        },
+                        "header": [
+                            {
+                                "key": "X-API-KEY",
+                                "value": "{{X-API-KEY}}",
+                                "type": "string"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"orderId\": \"example\",\n    \"currencyCode\": \"AED\",\n    \"amount\": 0,\n    \"order\": {\n        \"lineItems\": [\n            {\n                \"itemId\": \"example\",\n                \"name\": \"example\",\n                \"description\": \"example\",\n                \"amount\": 0,\n                \"quantity\": 0,\n                \"discountAmount\": 0,\n                \"taxAmount\": 0,\n                \"taxCode\": \"example\",\n                \"productType\": \"example\",\n                \"productData\": {\n                    \"sku\": \"example\",\n                    \"brand\": \"example\",\n                    \"color\": \"example\",\n                    \"globalTradeItemNumber\": \"example\",\n                    \"manufacturerPartNumber\": \"example\",\n                    \"weight\": 0,\n                    \"weightUnit\": \"example\"\n                }\n            }\n        ],\n        \"countryCode\": \"AW\",\n        \"fees\": [\n            {\n                \"amount\": 0,\n                \"type\": \"example\",\n                \"description\": \"example\"\n            }\n        ],\n        \"shipping\": {\n            \"amount\": 0\n        }\n    },\n    \"customerId\": \"example\",\n    \"customer\": {\n        \"emailAddress\": \"example\",\n        \"mobileNumber\": \"example\",\n        \"firstName\": \"example\",\n        \"lastName\": \"example\",\n        \"billingAddress\": {\n            \"firstName\": \"example\",\n            \"lastName\": \"example\",\n            \"addressLine1\": \"example\",\n            \"addressLine2\": \"example\",\n            \"city\": \"example\",\n            \"state\": \"example\",\n            \"countryCode\": \"AW\",\n            \"postalCode\": \"example\"\n        },\n        \"shippingAddress\": {\n            \"firstName\": \"example\",\n            \"lastName\": \"example\",\n            \"addressLine1\": \"example\",\n            \"addressLine2\": \"example\",\n            \"city\": \"example\",\n            \"state\": \"example\",\n            \"countryCode\": \"AW\",\n            \"postalCode\": \"example\"\n        },\n        \"taxId\": \"example\",\n        \"nationalDocumentId\": \"example\"\n    },\n    \"metadata\": {\n        \"example\": \"UNKNOWN\"\n    },\n    \"paymentMethod\": {\n        \"vaultOnSuccess\": true,\n        \"descriptor\": \"example\",\n        \"paymentType\": \"FIRST_PAYMENT\",\n        \"options\": {\n            \"PAYMENT_CARD\": {\n                \"networks\": {\n                    \"AMEX\": {\n                        \"surcharge\": {\n                            \"amount\": 0\n                        }\n                    }\n                },\n                \"surcharge\": {\n                    \"amount\": 0\n                }\n            }\n        }\n    }\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "response": [
+                        {
+                            "name": "Successful create",
+                            "code": 200,
+                            "originalRequest": {
+                                "description": "Creating a client session generates a client token: a temporary key used to initialize Universal Checkout and authenticate it against your account.\nUniversal Checkout automatically retrieves all the settings from the client session and the Dashboard to configure the payment methods and the checkout experience.\n\nNote:\nWhen creating a Client Session, please make sure to provide currencyCode, orderId, and at least one of amount or lineItems.\nIf any of these are not yet available, you can provide them when making the payment request.\nPOST /client-session does not have required fields as all fields are not always known when a client session is created.\nUse PATCH /client-session to update the parameters throughout the checkout session.\n\nClient tokens expire after 24 hours.\n",
+                                "url": {
+                                    "raw": "{{origin}}/client-session",
+                                    "host": [
+                                        "{{origin}}"
+                                    ],
+                                    "path": [
+                                        "client-session"
+                                    ],
+                                    "query": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "X-API-KEY",
+                                        "value": "{{X-API-KEY}}",
+                                        "type": "string"
+                                    }
+                                ],
+                                "method": "POST",
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n    \"orderId\": \"example\",\n    \"currencyCode\": \"AED\",\n    \"amount\": 0,\n    \"order\": {\n        \"lineItems\": [\n            {\n                \"itemId\": \"example\",\n                \"name\": \"example\",\n                \"description\": \"example\",\n                \"amount\": 0,\n                \"quantity\": 0,\n                \"discountAmount\": 0,\n                \"taxAmount\": 0,\n                \"taxCode\": \"example\",\n                \"productType\": \"example\",\n                \"productData\": {\n                    \"sku\": \"example\",\n                    \"brand\": \"example\",\n                    \"color\": \"example\",\n                    \"globalTradeItemNumber\": \"example\",\n                    \"manufacturerPartNumber\": \"example\",\n                    \"weight\": 0,\n                    \"weightUnit\": \"example\"\n                }\n            }\n        ],\n        \"countryCode\": \"AW\",\n        \"fees\": [\n            {\n                \"amount\": 0,\n                \"type\": \"example\",\n                \"description\": \"example\"\n            }\n        ],\n        \"shipping\": {\n            \"amount\": 0\n        }\n    },\n    \"customerId\": \"example\",\n    \"customer\": {\n        \"emailAddress\": \"example\",\n        \"mobileNumber\": \"example\",\n        \"firstName\": \"example\",\n        \"lastName\": \"example\",\n        \"billingAddress\": {\n            \"firstName\": \"example\",\n            \"lastName\": \"example\",\n            \"addressLine1\": \"example\",\n            \"addressLine2\": \"example\",\n            \"city\": \"example\",\n            \"state\": \"example\",\n            \"countryCode\": \"AW\",\n            \"postalCode\": \"example\"\n        },\n        \"shippingAddress\": {\n            \"firstName\": \"example\",\n            \"lastName\": \"example\",\n            \"addressLine1\": \"example\",\n            \"addressLine2\": \"example\",\n            \"city\": \"example\",\n            \"state\": \"example\",\n            \"countryCode\": \"AW\",\n            \"postalCode\": \"example\"\n        },\n        \"taxId\": \"example\",\n        \"nationalDocumentId\": \"example\"\n    },\n    \"metadata\": {\n        \"example\": \"UNKNOWN\"\n    },\n    \"paymentMethod\": {\n        \"vaultOnSuccess\": true,\n        \"descriptor\": \"example\",\n        \"paymentType\": \"FIRST_PAYMENT\",\n        \"options\": {\n            \"PAYMENT_CARD\": {\n                \"networks\": {\n                    \"AMEX\": {\n                        \"surcharge\": {\n                            \"amount\": 0\n                        }\n                    }\n                },\n                \"surcharge\": {\n                    \"amount\": 0\n                }\n            }\n        }\n    }\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                }
+                            },
+                            "body": "{\n    \"clientToken\": \"example\",\n    \"clientExpirationDate\": \"2022-11-01T23:13:45.038Z\",\n    \"customerId\": \"example\",\n    \"orderId\": \"example\",\n    \"currencyCode\": \"AED\",\n    \"amount\": 0,\n    \"order\": {\n        \"lineItems\": [\n            {\n                \"itemId\": \"example\",\n                \"name\": \"example\",\n                \"description\": \"example\",\n                \"amount\": 0,\n                \"quantity\": 0,\n                \"discountAmount\": 0,\n                \"taxAmount\": 0,\n                \"taxCode\": \"example\",\n                \"productType\": \"example\",\n                \"productData\": {\n                    \"sku\": \"example\",\n                    \"brand\": \"example\",\n                    \"color\": \"example\",\n                    \"globalTradeItemNumber\": \"example\",\n                    \"manufacturerPartNumber\": \"example\",\n                    \"weight\": 0,\n                    \"weightUnit\": \"example\"\n                }\n            }\n        ],\n        \"countryCode\": \"AW\",\n        \"fees\": [\n            {\n                \"amount\": 0,\n                \"type\": \"example\",\n                \"description\": \"example\"\n            }\n        ],\n        \"shipping\": {\n            \"amount\": 0\n        }\n    },\n    \"customer\": {\n        \"emailAddress\": \"example\",\n        \"mobileNumber\": \"example\",\n        \"firstName\": \"example\",\n        \"lastName\": \"example\",\n        \"billingAddress\": {\n            \"firstName\": \"example\",\n            \"lastName\": \"example\",\n            \"addressLine1\": \"example\",\n            \"addressLine2\": \"example\",\n            \"city\": \"example\",\n            \"state\": \"example\",\n            \"countryCode\": \"AW\",\n            \"postalCode\": \"example\"\n        },\n        \"shippingAddress\": {\n            \"firstName\": \"example\",\n            \"lastName\": \"example\",\n            \"addressLine1\": \"example\",\n            \"addressLine2\": \"example\",\n            \"city\": \"example\",\n            \"state\": \"example\",\n            \"countryCode\": \"AW\",\n            \"postalCode\": \"example\"\n        },\n        \"taxId\": \"example\",\n        \"nationalDocumentId\": \"example\"\n    },\n    \"metadata\": {\n        \"example\": \"UNKNOWN\"\n    },\n    \"paymentMethod\": {\n        \"vaultOnSuccess\": true,\n        \"descriptor\": \"example\",\n        \"paymentType\": \"FIRST_PAYMENT\",\n        \"options\": {\n            \"PAYMENT_CARD\": {\n                \"networks\": {\n                    \"AMEX\": {\n                        \"surcharge\": {\n                            \"amount\": 0\n                        }\n                    }\n                },\n                \"surcharge\": {\n                    \"amount\": 0\n                }\n            }\n        }\n    },\n    \"warnings\": {\n        \"type\": \"example\",\n        \"code\": \"example\",\n        \"message\": \"example\"\n    }\n}",
+                            "_postman_previewlanguage": "json"
+                        }
+                    ]
+                },
+                {
+                    "name": "get",
+                    "request": {
+                        "description": "Retrieve a client session. This API call retrieves all the details associated with the client session corresponding to the client token that is provided in the request. The fields with empty values are excluded from the response.",
+                        "url": {
+                            "raw": "{{origin}}/client-session?clientToken=",
+                            "host": [
+                                "{{origin}}"
+                            ],
+                            "path": [
+                                "client-session"
+                            ],
+                            "query": [
+                                {
+                                    "key": "clientToken",
+                                    "value": "",
+                                    "description": "Client token corresponding to the client session to retrieve"
+                                }
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "X-API-KEY",
+                                "value": "{{X-API-KEY}}",
+                                "type": "string"
+                            }
+                        ],
+                        "method": "GET"
+                    },
+                    "response": [
+                        {
+                            "name": "Successful get",
+                            "code": 200,
+                            "originalRequest": {
+                                "description": "Retrieve a client session. This API call retrieves all the details associated with the client session corresponding to the client token that is provided in the request. The fields with empty values are excluded from the response.",
+                                "url": {
+                                    "raw": "{{origin}}/client-session?clientToken=",
+                                    "host": [
+                                        "{{origin}}"
+                                    ],
+                                    "path": [
+                                        "client-session"
+                                    ],
+                                    "query": [
+                                        {
+                                            "key": "clientToken",
+                                            "value": "",
+                                            "description": "Client token corresponding to the client session to retrieve"
+                                        }
+                                    ]
+                                },
+                                "header": [
+                                    {
+                                        "key": "X-API-KEY",
+                                        "value": "{{X-API-KEY}}",
+                                        "type": "string"
+                                    }
+                                ],
+                                "method": "GET"
+                            },
+                            "body": "{\n    \"clientToken\": \"example\",\n    \"clientExpirationDate\": \"2022-11-01T23:13:45.040Z\",\n    \"customerId\": \"example\",\n    \"orderId\": \"example\",\n    \"currencyCode\": \"AED\",\n    \"amount\": 0,\n    \"order\": {\n        \"lineItems\": [\n            {\n                \"itemId\": \"example\",\n                \"name\": \"example\",\n                \"description\": \"example\",\n                \"amount\": 0,\n                \"quantity\": 0,\n                \"discountAmount\": 0,\n                \"taxAmount\": 0,\n                \"taxCode\": \"example\",\n                \"productType\": \"example\",\n                \"productData\": {\n                    \"sku\": \"example\",\n                    \"brand\": \"example\",\n                    \"color\": \"example\",\n                    \"globalTradeItemNumber\": \"example\",\n                    \"manufacturerPartNumber\": \"example\",\n                    \"weight\": 0,\n                    \"weightUnit\": \"example\"\n                }\n            }\n        ],\n        \"countryCode\": \"AW\",\n        \"fees\": [\n            {\n                \"amount\": 0,\n                \"type\": \"example\",\n                \"description\": \"example\"\n            }\n        ],\n        \"shipping\": {\n            \"amount\": 0\n        }\n    },\n    \"customer\": {\n        \"emailAddress\": \"example\",\n        \"mobileNumber\": \"example\",\n        \"firstName\": \"example\",\n        \"lastName\": \"example\",\n        \"billingAddress\": {\n            \"firstName\": \"example\",\n            \"lastName\": \"example\",\n            \"addressLine1\": \"example\",\n            \"addressLine2\": \"example\",\n            \"city\": \"example\",\n            \"state\": \"example\",\n            \"countryCode\": \"AW\",\n            \"postalCode\": \"example\"\n        },\n        \"shippingAddress\": {\n            \"firstName\": \"example\",\n            \"lastName\": \"example\",\n            \"addressLine1\": \"example\",\n            \"addressLine2\": \"example\",\n            \"city\": \"example\",\n            \"state\": \"example\",\n            \"countryCode\": \"AW\",\n            \"postalCode\": \"example\"\n        },\n        \"taxId\": \"example\",\n        \"nationalDocumentId\": \"example\"\n    },\n    \"metadata\": {\n        \"example\": \"UNKNOWN\"\n    },\n    \"paymentMethod\": {\n        \"vaultOnSuccess\": true,\n        \"descriptor\": \"example\",\n        \"paymentType\": \"FIRST_PAYMENT\",\n        \"options\": {\n            \"PAYMENT_CARD\": {\n                \"networks\": {\n                    \"AMEX\": {\n                        \"surcharge\": {\n                            \"amount\": 0\n                        }\n                    }\n                },\n                \"surcharge\": {\n                    \"amount\": 0\n                }\n            }\n        }\n    },\n    \"warnings\": {\n        \"type\": \"example\",\n        \"code\": \"example\",\n        \"message\": \"example\"\n    }\n}",
+                            "_postman_previewlanguage": "json"
+                        }
+                    ]
+                },
+                {
+                    "name": "update",
+                    "request": {
+                        "description": "Update a client session.\nThe only required field for the request is clientToken. Other supported request fields are same as for the POST /client-session API call.\nYou need to specify only the fields you wish to update. However, if the items that are to be updated are of type array, then you need to provide the complete array along with modified items.\nIf you wish to update nested fields on the client session, such as the customer emailAddress field, you can pass the customer object with only one field, emailAddress, to update.\nIf you simply wish to clear the value of the field, pass null as your input.\nYou can update paymentMethod.vaultOnSuccess field but updating of the paymentMethod.options field through PATCH /client-session is not supported.\nThe response will contain all the fields of the client session including the ones that were changed.\n",
+                        "url": {
+                            "raw": "{{origin}}/client-session",
+                            "host": [
+                                "{{origin}}"
+                            ],
+                            "path": [
+                                "client-session"
+                            ],
+                            "query": []
+                        },
+                        "header": [
+                            {
+                                "key": "X-API-KEY",
+                                "value": "{{X-API-KEY}}",
+                                "type": "string"
+                            }
+                        ],
+                        "method": "PATCH",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"clientToken\": \"example\",\n    \"orderId\": \"example\",\n    \"currencyCode\": \"AED\",\n    \"amount\": 0,\n    \"order\": {\n        \"lineItems\": [\n            {\n                \"itemId\": \"example\",\n                \"name\": \"example\",\n                \"description\": \"example\",\n                \"amount\": 0,\n                \"quantity\": 0,\n                \"discountAmount\": 0,\n                \"taxAmount\": 0,\n                \"taxCode\": \"example\",\n                \"productType\": \"example\",\n                \"productData\": {\n                    \"sku\": \"example\",\n                    \"brand\": \"example\",\n                    \"color\": \"example\",\n                    \"globalTradeItemNumber\": \"example\",\n                    \"manufacturerPartNumber\": \"example\",\n                    \"weight\": 0,\n                    \"weightUnit\": \"example\"\n                }\n            }\n        ],\n        \"countryCode\": \"AW\",\n        \"fees\": [\n            {\n                \"amount\": 0,\n                \"type\": \"example\",\n                \"description\": \"example\"\n            }\n        ],\n        \"shipping\": {\n            \"amount\": 0\n        }\n    },\n    \"customer\": {\n        \"emailAddress\": \"example\",\n        \"mobileNumber\": \"example\",\n        \"firstName\": \"example\",\n        \"lastName\": \"example\",\n        \"billingAddress\": {\n            \"firstName\": \"example\",\n            \"lastName\": \"example\",\n            \"addressLine1\": \"example\",\n            \"addressLine2\": \"example\",\n            \"city\": \"example\",\n            \"state\": \"example\",\n            \"countryCode\": \"AW\",\n            \"postalCode\": \"example\"\n        },\n        \"shippingAddress\": {\n            \"firstName\": \"example\",\n            \"lastName\": \"example\",\n            \"addressLine1\": \"example\",\n            \"addressLine2\": \"example\",\n            \"city\": \"example\",\n            \"state\": \"example\",\n            \"countryCode\": \"AW\",\n            \"postalCode\": \"example\"\n        },\n        \"taxId\": \"example\",\n        \"nationalDocumentId\": \"example\"\n    },\n    \"metadata\": {\n        \"example\": \"UNKNOWN\"\n    },\n    \"paymentMethod\": {\n        \"vaultOnSuccess\": true,\n        \"descriptor\": \"example\",\n        \"paymentType\": \"FIRST_PAYMENT\",\n        \"options\": {\n            \"PAYMENT_CARD\": {\n                \"networks\": {\n                    \"AMEX\": {\n                        \"surcharge\": {\n                            \"amount\": 0\n                        }\n                    }\n                },\n                \"surcharge\": {\n                    \"amount\": 0\n                }\n            }\n        }\n    }\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "response": [
+                        {
+                            "name": "Successful update",
+                            "code": 200,
+                            "originalRequest": {
+                                "description": "Update a client session.\nThe only required field for the request is clientToken. Other supported request fields are same as for the POST /client-session API call.\nYou need to specify only the fields you wish to update. However, if the items that are to be updated are of type array, then you need to provide the complete array along with modified items.\nIf you wish to update nested fields on the client session, such as the customer emailAddress field, you can pass the customer object with only one field, emailAddress, to update.\nIf you simply wish to clear the value of the field, pass null as your input.\nYou can update paymentMethod.vaultOnSuccess field but updating of the paymentMethod.options field through PATCH /client-session is not supported.\nThe response will contain all the fields of the client session including the ones that were changed.\n",
+                                "url": {
+                                    "raw": "{{origin}}/client-session",
+                                    "host": [
+                                        "{{origin}}"
+                                    ],
+                                    "path": [
+                                        "client-session"
+                                    ],
+                                    "query": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "X-API-KEY",
+                                        "value": "{{X-API-KEY}}",
+                                        "type": "string"
+                                    }
+                                ],
+                                "method": "PATCH",
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n    \"clientToken\": \"example\",\n    \"orderId\": \"example\",\n    \"currencyCode\": \"AED\",\n    \"amount\": 0,\n    \"order\": {\n        \"lineItems\": [\n            {\n                \"itemId\": \"example\",\n                \"name\": \"example\",\n                \"description\": \"example\",\n                \"amount\": 0,\n                \"quantity\": 0,\n                \"discountAmount\": 0,\n                \"taxAmount\": 0,\n                \"taxCode\": \"example\",\n                \"productType\": \"example\",\n                \"productData\": {\n                    \"sku\": \"example\",\n                    \"brand\": \"example\",\n                    \"color\": \"example\",\n                    \"globalTradeItemNumber\": \"example\",\n                    \"manufacturerPartNumber\": \"example\",\n                    \"weight\": 0,\n                    \"weightUnit\": \"example\"\n                }\n            }\n        ],\n        \"countryCode\": \"AW\",\n        \"fees\": [\n            {\n                \"amount\": 0,\n                \"type\": \"example\",\n                \"description\": \"example\"\n            }\n        ],\n        \"shipping\": {\n            \"amount\": 0\n        }\n    },\n    \"customer\": {\n        \"emailAddress\": \"example\",\n        \"mobileNumber\": \"example\",\n        \"firstName\": \"example\",\n        \"lastName\": \"example\",\n        \"billingAddress\": {\n            \"firstName\": \"example\",\n            \"lastName\": \"example\",\n            \"addressLine1\": \"example\",\n            \"addressLine2\": \"example\",\n            \"city\": \"example\",\n            \"state\": \"example\",\n            \"countryCode\": \"AW\",\n            \"postalCode\": \"example\"\n        },\n        \"shippingAddress\": {\n            \"firstName\": \"example\",\n            \"lastName\": \"example\",\n            \"addressLine1\": \"example\",\n            \"addressLine2\": \"example\",\n            \"city\": \"example\",\n            \"state\": \"example\",\n            \"countryCode\": \"AW\",\n            \"postalCode\": \"example\"\n        },\n        \"taxId\": \"example\",\n        \"nationalDocumentId\": \"example\"\n    },\n    \"metadata\": {\n        \"example\": \"UNKNOWN\"\n    },\n    \"paymentMethod\": {\n        \"vaultOnSuccess\": true,\n        \"descriptor\": \"example\",\n        \"paymentType\": \"FIRST_PAYMENT\",\n        \"options\": {\n            \"PAYMENT_CARD\": {\n                \"networks\": {\n                    \"AMEX\": {\n                        \"surcharge\": {\n                            \"amount\": 0\n                        }\n                    }\n                },\n                \"surcharge\": {\n                    \"amount\": 0\n                }\n            }\n        }\n    }\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                }
+                            },
+                            "body": "{\n    \"clientToken\": \"example\",\n    \"clientExpirationDate\": \"2022-11-01T23:13:45.045Z\",\n    \"customerId\": \"example\",\n    \"orderId\": \"example\",\n    \"currencyCode\": \"AED\",\n    \"amount\": 0,\n    \"order\": {\n        \"lineItems\": [\n            {\n                \"itemId\": \"example\",\n                \"name\": \"example\",\n                \"description\": \"example\",\n                \"amount\": 0,\n                \"quantity\": 0,\n                \"discountAmount\": 0,\n                \"taxAmount\": 0,\n                \"taxCode\": \"example\",\n                \"productType\": \"example\",\n                \"productData\": {\n                    \"sku\": \"example\",\n                    \"brand\": \"example\",\n                    \"color\": \"example\",\n                    \"globalTradeItemNumber\": \"example\",\n                    \"manufacturerPartNumber\": \"example\",\n                    \"weight\": 0,\n                    \"weightUnit\": \"example\"\n                }\n            }\n        ],\n        \"countryCode\": \"AW\",\n        \"fees\": [\n            {\n                \"amount\": 0,\n                \"type\": \"example\",\n                \"description\": \"example\"\n            }\n        ],\n        \"shipping\": {\n            \"amount\": 0\n        }\n    },\n    \"customer\": {\n        \"emailAddress\": \"example\",\n        \"mobileNumber\": \"example\",\n        \"firstName\": \"example\",\n        \"lastName\": \"example\",\n        \"billingAddress\": {\n            \"firstName\": \"example\",\n            \"lastName\": \"example\",\n            \"addressLine1\": \"example\",\n            \"addressLine2\": \"example\",\n            \"city\": \"example\",\n            \"state\": \"example\",\n            \"countryCode\": \"AW\",\n            \"postalCode\": \"example\"\n        },\n        \"shippingAddress\": {\n            \"firstName\": \"example\",\n            \"lastName\": \"example\",\n            \"addressLine1\": \"example\",\n            \"addressLine2\": \"example\",\n            \"city\": \"example\",\n            \"state\": \"example\",\n            \"countryCode\": \"AW\",\n            \"postalCode\": \"example\"\n        },\n        \"taxId\": \"example\",\n        \"nationalDocumentId\": \"example\"\n    },\n    \"metadata\": {\n        \"example\": \"UNKNOWN\"\n    },\n    \"paymentMethod\": {\n        \"vaultOnSuccess\": true,\n        \"descriptor\": \"example\",\n        \"paymentType\": \"FIRST_PAYMENT\",\n        \"options\": {\n            \"PAYMENT_CARD\": {\n                \"networks\": {\n                    \"AMEX\": {\n                        \"surcharge\": {\n                            \"amount\": 0\n                        }\n                    }\n                },\n                \"surcharge\": {\n                    \"amount\": 0\n                }\n            }\n        }\n    },\n    \"warnings\": {\n        \"type\": \"example\",\n        \"code\": \"example\",\n        \"message\": \"example\"\n    }\n}",
+                            "_postman_previewlanguage": "json"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "PaymentMethodsService",
+            "item": [
+                {
+                    "name": "saveToken",
+                    "request": {
+                        "description": "Save a `SINGLE_USE` payment method token so it can be used\nagain later. You can optionally choose to verify the payment method\nbefore vaulting. If verification fails, no payment method data will\nbe vaulted. Verification can minimise fraud and boost subscription\nrates for recurring payments.\n\nIf you try to vault an already vaulted token, you will get the existing vaulted token back.\n",
+                        "url": {
+                            "raw": "{{origin}}/payment-instruments/:paymentMethodToken/vault",
+                            "host": [
+                                "{{origin}}"
+                            ],
+                            "path": [
+                                "payment-instruments",
+                                ":paymentMethodToken",
+                                "vault"
+                            ],
+                            "query": []
+                        },
+                        "header": [
+                            {
+                                "key": "X-API-KEY",
+                                "value": "{{X-API-KEY}}",
+                                "type": "string"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"customerId\": \"example\",\n    \"verify\": true\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "response": [
+                        {
+                            "name": "Successful saveToken",
+                            "code": 200,
+                            "originalRequest": {
+                                "description": "Save a `SINGLE_USE` payment method token so it can be used\nagain later. You can optionally choose to verify the payment method\nbefore vaulting. If verification fails, no payment method data will\nbe vaulted. Verification can minimise fraud and boost subscription\nrates for recurring payments.\n\nIf you try to vault an already vaulted token, you will get the existing vaulted token back.\n",
+                                "url": {
+                                    "raw": "{{origin}}/payment-instruments/:paymentMethodToken/vault",
+                                    "host": [
+                                        "{{origin}}"
+                                    ],
+                                    "path": [
+                                        "payment-instruments",
+                                        ":paymentMethodToken",
+                                        "vault"
+                                    ],
+                                    "query": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "X-API-KEY",
+                                        "value": "{{X-API-KEY}}",
+                                        "type": "string"
+                                    }
+                                ],
+                                "method": "POST",
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n    \"customerId\": \"example\",\n    \"verify\": true\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                }
+                            },
+                            "body": "{\n    \"paymentMethodType\": \"PAYMENT_CARD\",\n    \"paymentMethodData\": {\n        \"last4Digits\": \"example\",\n        \"expirationMonth\": \"example\",\n        \"expirationYear\": \"example\",\n        \"cardholderName\": \"example\",\n        \"network\": \"example\",\n        \"networkTransactionId\": \"example\",\n        \"accountFundingType\": \"CREDIT\"\n    },\n    \"createdAt\": \"2022-11-01T23:13:45.046Z\",\n    \"deletedAt\": \"2022-11-01T23:13:45.046Z\",\n    \"deleted\": true,\n    \"token\": \"example\",\n    \"tokenType\": \"example\",\n    \"analyticsId\": \"example\",\n    \"customerId\": \"example\",\n    \"description\": \"example\",\n    \"default\": true,\n    \"isVerified\": true\n}",
+                            "_postman_previewlanguage": "json"
+                        }
+                    ]
+                },
+                {
+                    "name": "list",
+                    "request": {
+                        "description": "Retrieve a list of stored payment methods for a customer.",
+                        "url": {
+                            "raw": "{{origin}}/payment-instruments?customer_id=",
+                            "host": [
+                                "{{origin}}"
+                            ],
+                            "path": [
+                                "payment-instruments"
+                            ],
+                            "query": [
+                                {
+                                    "key": "customer_id",
+                                    "value": "",
+                                    "description": "Return payment methods for this customer ID."
+                                }
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "X-API-KEY",
+                                "value": "{{X-API-KEY}}",
+                                "type": "string"
+                            }
+                        ],
+                        "method": "GET"
+                    },
+                    "response": [
+                        {
+                            "name": "Successful list",
+                            "code": 200,
+                            "originalRequest": {
+                                "description": "Retrieve a list of stored payment methods for a customer.",
+                                "url": {
+                                    "raw": "{{origin}}/payment-instruments?customer_id=",
+                                    "host": [
+                                        "{{origin}}"
+                                    ],
+                                    "path": [
+                                        "payment-instruments"
+                                    ],
+                                    "query": [
+                                        {
+                                            "key": "customer_id",
+                                            "value": "",
+                                            "description": "Return payment methods for this customer ID."
+                                        }
+                                    ]
+                                },
+                                "header": [
+                                    {
+                                        "key": "X-API-KEY",
+                                        "value": "{{X-API-KEY}}",
+                                        "type": "string"
+                                    }
+                                ],
+                                "method": "GET"
+                            },
+                            "body": "{\n    \"data\": [\n        {\n            \"paymentMethodType\": \"PAYMENT_CARD\",\n            \"paymentMethodData\": {\n                \"last4Digits\": \"example\",\n                \"expirationMonth\": \"example\",\n                \"expirationYear\": \"example\",\n                \"cardholderName\": \"example\",\n                \"network\": \"example\",\n                \"networkTransactionId\": \"example\",\n                \"accountFundingType\": \"CREDIT\"\n            },\n            \"createdAt\": \"2022-11-01T23:13:45.047Z\",\n            \"deletedAt\": \"2022-11-01T23:13:45.047Z\",\n            \"deleted\": true,\n            \"token\": \"example\",\n            \"tokenType\": \"example\",\n            \"analyticsId\": \"example\",\n            \"customerId\": \"example\",\n            \"description\": \"example\",\n            \"default\": true,\n            \"isVerified\": true\n        }\n    ]\n}",
+                            "_postman_previewlanguage": "json"
+                        }
+                    ]
+                },
+                {
+                    "name": "delete",
+                    "request": {
+                        "description": "Delete a saved payment method.",
+                        "url": {
+                            "raw": "{{origin}}/payment-instruments/:paymentMethodToken",
+                            "host": [
+                                "{{origin}}"
+                            ],
+                            "path": [
+                                "payment-instruments",
+                                ":paymentMethodToken"
+                            ],
+                            "query": []
+                        },
+                        "header": [
+                            {
+                                "key": "X-API-KEY",
+                                "value": "{{X-API-KEY}}",
+                                "type": "string"
+                            }
+                        ],
+                        "method": "DELETE"
+                    },
+                    "response": [
+                        {
+                            "name": "Successful delete",
+                            "code": 200,
+                            "originalRequest": {
+                                "description": "Delete a saved payment method.",
+                                "url": {
+                                    "raw": "{{origin}}/payment-instruments/:paymentMethodToken",
+                                    "host": [
+                                        "{{origin}}"
+                                    ],
+                                    "path": [
+                                        "payment-instruments",
+                                        ":paymentMethodToken"
+                                    ],
+                                    "query": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "X-API-KEY",
+                                        "value": "{{X-API-KEY}}",
+                                        "type": "string"
+                                    }
+                                ],
+                                "method": "DELETE"
+                            },
+                            "body": "{\n    \"paymentMethodType\": \"PAYMENT_CARD\",\n    \"paymentMethodData\": {\n        \"last4Digits\": \"example\",\n        \"expirationMonth\": \"example\",\n        \"expirationYear\": \"example\",\n        \"cardholderName\": \"example\",\n        \"network\": \"example\",\n        \"networkTransactionId\": \"example\",\n        \"accountFundingType\": \"CREDIT\"\n    },\n    \"createdAt\": \"2022-11-01T23:13:45.047Z\",\n    \"deletedAt\": \"2022-11-01T23:13:45.047Z\",\n    \"deleted\": true,\n    \"token\": \"example\",\n    \"tokenType\": \"example\",\n    \"analyticsId\": \"example\",\n    \"customerId\": \"example\",\n    \"description\": \"example\",\n    \"default\": true,\n    \"isVerified\": true\n}",
+                            "_postman_previewlanguage": "json"
+                        }
+                    ]
+                },
+                {
+                    "name": "updateDefault",
+                    "request": {
+                        "description": "Update a saved payment method to be the default stored payment method for a customer.",
+                        "url": {
+                            "raw": "{{origin}}/payment-instruments/:paymentMethodToken/default",
+                            "host": [
+                                "{{origin}}"
+                            ],
+                            "path": [
+                                "payment-instruments",
+                                ":paymentMethodToken",
+                                "default"
+                            ],
+                            "query": []
+                        },
+                        "header": [
+                            {
+                                "key": "X-API-KEY",
+                                "value": "{{X-API-KEY}}",
+                                "type": "string"
+                            }
+                        ],
+                        "method": "POST"
+                    },
+                    "response": [
+                        {
+                            "name": "Successful updateDefault",
+                            "code": 200,
+                            "originalRequest": {
+                                "description": "Update a saved payment method to be the default stored payment method for a customer.",
+                                "url": {
+                                    "raw": "{{origin}}/payment-instruments/:paymentMethodToken/default",
+                                    "host": [
+                                        "{{origin}}"
+                                    ],
+                                    "path": [
+                                        "payment-instruments",
+                                        ":paymentMethodToken",
+                                        "default"
+                                    ],
+                                    "query": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "X-API-KEY",
+                                        "value": "{{X-API-KEY}}",
+                                        "type": "string"
+                                    }
+                                ],
+                                "method": "POST"
+                            },
+                            "body": "{\n    \"paymentMethodType\": \"PAYMENT_CARD\",\n    \"paymentMethodData\": {\n        \"last4Digits\": \"example\",\n        \"expirationMonth\": \"example\",\n        \"expirationYear\": \"example\",\n        \"cardholderName\": \"example\",\n        \"network\": \"example\",\n        \"networkTransactionId\": \"example\",\n        \"accountFundingType\": \"CREDIT\"\n    },\n    \"createdAt\": \"2022-11-01T23:13:45.048Z\",\n    \"deletedAt\": \"2022-11-01T23:13:45.048Z\",\n    \"deleted\": true,\n    \"token\": \"example\",\n    \"tokenType\": \"example\",\n    \"analyticsId\": \"example\",\n    \"customerId\": \"example\",\n    \"description\": \"example\",\n    \"default\": true,\n    \"isVerified\": true\n}",
+                            "_postman_previewlanguage": "json"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "PaymentsService",
+            "item": [
+                {
+                    "name": "search",
+                    "request": {
+                        "description": "Search and retrieve a list of your payments. \nResults are paginated, they will only return up to 100 payments maximum. \nTo access the next page of result, set the cursor query parameter to the value of nextCursor in your current result payload. \nUse prevCursor to go back to the previous page.\nPayments will be available within a minute from being created.\n",
+                        "url": {
+                            "raw": "{{origin}}/payments?status=&payment_method_type=&processor=&currency_code=&from_date=&to_date=&order_id=&min_amount=&max_amount=&customer_id=&merchant_id=&customer_email_address=&last_4_digits=&paypal_email=&klarna_email=&limit=&cursor=",
+                            "host": [
+                                "{{origin}}"
+                            ],
+                            "path": [
+                                "payments"
+                            ],
+                            "query": [
+                                {
+                                    "key": "status",
+                                    "value": "",
+                                    "description": "Filter payments by their status. For example, \"FAILED,CANCELLED”"
+                                },
+                                {
+                                    "key": "payment_method_type",
+                                    "value": "",
+                                    "description": "Filter payments by their payment method type. For example, \"PAYMENT_CARD,APPLE_PAY\""
+                                },
+                                {
+                                    "key": "processor",
+                                    "value": "",
+                                    "description": "Filter payments by their payment processor. For example, \"Stripe,Braintree\""
+                                },
+                                {
+                                    "key": "currency_code",
+                                    "value": "",
+                                    "description": "Filter payments by their payment currency. For example, \"USD,EUR\" for US dollars and Euro"
+                                },
+                                {
+                                    "key": "from_date",
+                                    "value": "",
+                                    "description": "Return only payments from this date (inclusive)."
+                                },
+                                {
+                                    "key": "to_date",
+                                    "value": "",
+                                    "description": "Return only payments up to this date (inclusive)."
+                                },
+                                {
+                                    "key": "order_id",
+                                    "value": "",
+                                    "description": "Return payments related to this order ID."
+                                },
+                                {
+                                    "key": "min_amount",
+                                    "value": "",
+                                    "description": "Return payments of this amount minimum (inclusive)."
+                                },
+                                {
+                                    "key": "max_amount",
+                                    "value": "",
+                                    "description": "Return payments of this amount max (inclusive)."
+                                },
+                                {
+                                    "key": "customer_id",
+                                    "value": "",
+                                    "description": "ID of the customer that has made the payment. For example, \"anna-123,dirk-456\""
+                                },
+                                {
+                                    "key": "merchant_id",
+                                    "value": "",
+                                    "description": "ID of the merchant involved in the payment."
+                                },
+                                {
+                                    "key": "customer_email_address",
+                                    "value": "",
+                                    "description": "Email of the customer that has made the payment. For example, \"mary@gm.com,ginni@ibm.com\""
+                                },
+                                {
+                                    "key": "last_4_digits",
+                                    "value": "",
+                                    "description": "Last 4 digits of the card used for the payment. For example, \"4839,8709\""
+                                },
+                                {
+                                    "key": "paypal_email",
+                                    "value": "",
+                                    "description": "Paypal email address associated with the payment. For example, \"mary@gm.com,ginni@ibm.com\""
+                                },
+                                {
+                                    "key": "klarna_email",
+                                    "value": "",
+                                    "description": "Klarna email address associated with the payment. \"mary@gm.com,ginni@ibm.com\""
+                                },
+                                {
+                                    "key": "limit",
+                                    "value": "",
+                                    "description": "Maximum number of payments to return per page. Between 1 and 100."
+                                },
+                                {
+                                    "key": "cursor",
+                                    "value": "",
+                                    "description": "If results are paginated, pass the nextCursor to access next page."
+                                }
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "X-API-KEY",
+                                "value": "{{X-API-KEY}}",
+                                "type": "string"
+                            },
+                            {
+                                "key": "X-Idempotency-Key",
+                                "type": "text",
+                                "value": "\"example\""
+                            }
+                        ],
+                        "method": "GET"
+                    },
+                    "response": [
+                        {
+                            "name": "Successful search",
+                            "code": 200,
+                            "originalRequest": {
+                                "description": "Search and retrieve a list of your payments. \nResults are paginated, they will only return up to 100 payments maximum. \nTo access the next page of result, set the cursor query parameter to the value of nextCursor in your current result payload. \nUse prevCursor to go back to the previous page.\nPayments will be available within a minute from being created.\n",
+                                "url": {
+                                    "raw": "{{origin}}/payments?status=&payment_method_type=&processor=&currency_code=&from_date=&to_date=&order_id=&min_amount=&max_amount=&customer_id=&merchant_id=&customer_email_address=&last_4_digits=&paypal_email=&klarna_email=&limit=&cursor=",
+                                    "host": [
+                                        "{{origin}}"
+                                    ],
+                                    "path": [
+                                        "payments"
+                                    ],
+                                    "query": [
+                                        {
+                                            "key": "status",
+                                            "value": "",
+                                            "description": "Filter payments by their status. For example, \"FAILED,CANCELLED”"
+                                        },
+                                        {
+                                            "key": "payment_method_type",
+                                            "value": "",
+                                            "description": "Filter payments by their payment method type. For example, \"PAYMENT_CARD,APPLE_PAY\""
+                                        },
+                                        {
+                                            "key": "processor",
+                                            "value": "",
+                                            "description": "Filter payments by their payment processor. For example, \"Stripe,Braintree\""
+                                        },
+                                        {
+                                            "key": "currency_code",
+                                            "value": "",
+                                            "description": "Filter payments by their payment currency. For example, \"USD,EUR\" for US dollars and Euro"
+                                        },
+                                        {
+                                            "key": "from_date",
+                                            "value": "",
+                                            "description": "Return only payments from this date (inclusive)."
+                                        },
+                                        {
+                                            "key": "to_date",
+                                            "value": "",
+                                            "description": "Return only payments up to this date (inclusive)."
+                                        },
+                                        {
+                                            "key": "order_id",
+                                            "value": "",
+                                            "description": "Return payments related to this order ID."
+                                        },
+                                        {
+                                            "key": "min_amount",
+                                            "value": "",
+                                            "description": "Return payments of this amount minimum (inclusive)."
+                                        },
+                                        {
+                                            "key": "max_amount",
+                                            "value": "",
+                                            "description": "Return payments of this amount max (inclusive)."
+                                        },
+                                        {
+                                            "key": "customer_id",
+                                            "value": "",
+                                            "description": "ID of the customer that has made the payment. For example, \"anna-123,dirk-456\""
+                                        },
+                                        {
+                                            "key": "merchant_id",
+                                            "value": "",
+                                            "description": "ID of the merchant involved in the payment."
+                                        },
+                                        {
+                                            "key": "customer_email_address",
+                                            "value": "",
+                                            "description": "Email of the customer that has made the payment. For example, \"mary@gm.com,ginni@ibm.com\""
+                                        },
+                                        {
+                                            "key": "last_4_digits",
+                                            "value": "",
+                                            "description": "Last 4 digits of the card used for the payment. For example, \"4839,8709\""
+                                        },
+                                        {
+                                            "key": "paypal_email",
+                                            "value": "",
+                                            "description": "Paypal email address associated with the payment. For example, \"mary@gm.com,ginni@ibm.com\""
+                                        },
+                                        {
+                                            "key": "klarna_email",
+                                            "value": "",
+                                            "description": "Klarna email address associated with the payment. \"mary@gm.com,ginni@ibm.com\""
+                                        },
+                                        {
+                                            "key": "limit",
+                                            "value": "",
+                                            "description": "Maximum number of payments to return per page. Between 1 and 100."
+                                        },
+                                        {
+                                            "key": "cursor",
+                                            "value": "",
+                                            "description": "If results are paginated, pass the nextCursor to access next page."
+                                        }
+                                    ]
+                                },
+                                "header": [
+                                    {
+                                        "key": "X-API-KEY",
+                                        "value": "{{X-API-KEY}}",
+                                        "type": "string"
+                                    },
+                                    {
+                                        "key": "X-Idempotency-Key",
+                                        "type": "text",
+                                        "value": "\"example\""
+                                    }
+                                ],
+                                "method": "GET"
+                            },
+                            "body": "{\n    \"data\": [\n        {\n            \"id\": \"example\",\n            \"date\": \"2022-11-01T23:13:45.048Z\",\n            \"status\": \"PENDING\",\n            \"orderId\": \"example\",\n            \"processor\": {\n                \"name\": \"example\",\n                \"processorMerchantId\": \"example\",\n                \"amountCaptured\": 0,\n                \"amountRefunded\": 0\n            },\n            \"currencyCode\": \"AED\",\n            \"amount\": 0,\n            \"metadata\": {\n                \"example\": \"UNKNOWN\"\n            }\n        }\n    ],\n    \"nextCursor\": \"example\",\n    \"prevCursor\": \"example\"\n}",
+                            "_postman_previewlanguage": "json"
+                        }
+                    ]
+                },
+                {
+                    "name": "create",
+                    "request": {
+                        "description": "Create and authorize a payment for a given customer order. \nYou should provide a payment method token here to avoid PCI implications.\nIf only a payment method token is passed, the values passed with the Client Session is used to determine the amount, currency etc.\nNote: amount, currencyCode and orderId are required during payment creation.\nMake sure to pass these fields when creating a client session, or if not yet available, when creating a payment.\nAll fields provided on this request will take preference over any field on the order associated with the client session. \nE.g. if you pass amount on this request, it will override the amount on the order associated with the Client Session.\n",
+                        "url": {
+                            "raw": "{{origin}}/payments",
+                            "host": [
+                                "{{origin}}"
+                            ],
+                            "path": [
+                                "payments"
+                            ],
+                            "query": []
+                        },
+                        "header": [
+                            {
+                                "key": "X-API-KEY",
+                                "value": "{{X-API-KEY}}",
+                                "type": "string"
+                            },
+                            {
+                                "key": "X-Idempotency-Key",
+                                "type": "text",
+                                "value": "\"example\""
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"orderId\": \"example\",\n    \"currencyCode\": \"AED\",\n    \"amount\": 0,\n    \"order\": {\n        \"lineItems\": [\n            {\n                \"itemId\": \"example\",\n                \"name\": \"example\",\n                \"description\": \"example\",\n                \"amount\": 0,\n                \"quantity\": 0,\n                \"discountAmount\": 0,\n                \"taxAmount\": 0,\n                \"taxCode\": \"example\",\n                \"productType\": \"example\",\n                \"productData\": {\n                    \"sku\": \"example\",\n                    \"brand\": \"example\",\n                    \"color\": \"example\",\n                    \"globalTradeItemNumber\": \"example\",\n                    \"manufacturerPartNumber\": \"example\",\n                    \"weight\": 0,\n                    \"weightUnit\": \"example\"\n                }\n            }\n        ],\n        \"countryCode\": \"AW\",\n        \"fees\": [\n            {\n                \"amount\": 0,\n                \"type\": \"example\",\n                \"description\": \"example\"\n            }\n        ],\n        \"shipping\": {\n            \"amount\": 0\n        }\n    },\n    \"paymentMethodToken\": \"example\",\n    \"customerId\": \"example\",\n    \"customer\": {\n        \"emailAddress\": \"example\",\n        \"mobileNumber\": \"example\",\n        \"firstName\": \"example\",\n        \"lastName\": \"example\",\n        \"billingAddress\": {\n            \"firstName\": \"example\",\n            \"lastName\": \"example\",\n            \"addressLine1\": \"example\",\n            \"addressLine2\": \"example\",\n            \"city\": \"example\",\n            \"state\": \"example\",\n            \"countryCode\": \"AW\",\n            \"postalCode\": \"example\"\n        },\n        \"shippingAddress\": {\n            \"firstName\": \"example\",\n            \"lastName\": \"example\",\n            \"addressLine1\": \"example\",\n            \"addressLine2\": \"example\",\n            \"city\": \"example\",\n            \"state\": \"example\",\n            \"countryCode\": \"AW\",\n            \"postalCode\": \"example\"\n        },\n        \"taxId\": \"example\",\n        \"nationalDocumentId\": \"example\"\n    },\n    \"metadata\": {\n        \"example\": \"UNKNOWN\"\n    },\n    \"paymentMethod\": {\n        \"vaultOnSuccess\": true,\n        \"descriptor\": \"example\",\n        \"paymentType\": \"FIRST_PAYMENT\",\n        \"options\": {\n            \"PAYMENT_CARD\": {\n                \"networks\": {\n                    \"AMEX\": {\n                        \"surcharge\": {\n                            \"amount\": 0\n                        }\n                    }\n                },\n                \"surcharge\": {\n                    \"amount\": 0\n                }\n            }\n        }\n    }\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "response": [
+                        {
+                            "name": "Successful create",
+                            "code": 200,
+                            "originalRequest": {
+                                "description": "Create and authorize a payment for a given customer order. \nYou should provide a payment method token here to avoid PCI implications.\nIf only a payment method token is passed, the values passed with the Client Session is used to determine the amount, currency etc.\nNote: amount, currencyCode and orderId are required during payment creation.\nMake sure to pass these fields when creating a client session, or if not yet available, when creating a payment.\nAll fields provided on this request will take preference over any field on the order associated with the client session. \nE.g. if you pass amount on this request, it will override the amount on the order associated with the Client Session.\n",
+                                "url": {
+                                    "raw": "{{origin}}/payments",
+                                    "host": [
+                                        "{{origin}}"
+                                    ],
+                                    "path": [
+                                        "payments"
+                                    ],
+                                    "query": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "X-API-KEY",
+                                        "value": "{{X-API-KEY}}",
+                                        "type": "string"
+                                    },
+                                    {
+                                        "key": "X-Idempotency-Key",
+                                        "type": "text",
+                                        "value": "\"example\""
+                                    }
+                                ],
+                                "method": "POST",
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n    \"orderId\": \"example\",\n    \"currencyCode\": \"AED\",\n    \"amount\": 0,\n    \"order\": {\n        \"lineItems\": [\n            {\n                \"itemId\": \"example\",\n                \"name\": \"example\",\n                \"description\": \"example\",\n                \"amount\": 0,\n                \"quantity\": 0,\n                \"discountAmount\": 0,\n                \"taxAmount\": 0,\n                \"taxCode\": \"example\",\n                \"productType\": \"example\",\n                \"productData\": {\n                    \"sku\": \"example\",\n                    \"brand\": \"example\",\n                    \"color\": \"example\",\n                    \"globalTradeItemNumber\": \"example\",\n                    \"manufacturerPartNumber\": \"example\",\n                    \"weight\": 0,\n                    \"weightUnit\": \"example\"\n                }\n            }\n        ],\n        \"countryCode\": \"AW\",\n        \"fees\": [\n            {\n                \"amount\": 0,\n                \"type\": \"example\",\n                \"description\": \"example\"\n            }\n        ],\n        \"shipping\": {\n            \"amount\": 0\n        }\n    },\n    \"paymentMethodToken\": \"example\",\n    \"customerId\": \"example\",\n    \"customer\": {\n        \"emailAddress\": \"example\",\n        \"mobileNumber\": \"example\",\n        \"firstName\": \"example\",\n        \"lastName\": \"example\",\n        \"billingAddress\": {\n            \"firstName\": \"example\",\n            \"lastName\": \"example\",\n            \"addressLine1\": \"example\",\n            \"addressLine2\": \"example\",\n            \"city\": \"example\",\n            \"state\": \"example\",\n            \"countryCode\": \"AW\",\n            \"postalCode\": \"example\"\n        },\n        \"shippingAddress\": {\n            \"firstName\": \"example\",\n            \"lastName\": \"example\",\n            \"addressLine1\": \"example\",\n            \"addressLine2\": \"example\",\n            \"city\": \"example\",\n            \"state\": \"example\",\n            \"countryCode\": \"AW\",\n            \"postalCode\": \"example\"\n        },\n        \"taxId\": \"example\",\n        \"nationalDocumentId\": \"example\"\n    },\n    \"metadata\": {\n        \"example\": \"UNKNOWN\"\n    },\n    \"paymentMethod\": {\n        \"vaultOnSuccess\": true,\n        \"descriptor\": \"example\",\n        \"paymentType\": \"FIRST_PAYMENT\",\n        \"options\": {\n            \"PAYMENT_CARD\": {\n                \"networks\": {\n                    \"AMEX\": {\n                        \"surcharge\": {\n                            \"amount\": 0\n                        }\n                    }\n                },\n                \"surcharge\": {\n                    \"amount\": 0\n                }\n            }\n        }\n    }\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                }
+                            },
+                            "body": "{\n    \"id\": \"example\",\n    \"date\": \"2022-11-01T23:13:45.049Z\",\n    \"status\": \"PENDING\",\n    \"orderId\": \"example\",\n    \"customerId\": \"example\",\n    \"currencyCode\": \"AED\",\n    \"amount\": 0,\n    \"order\": {\n        \"emailAddress\": \"example\",\n        \"mobileNumber\": \"example\",\n        \"firstName\": \"example\",\n        \"lastName\": \"example\",\n        \"billingAddress\": {\n            \"firstName\": \"example\",\n            \"lastName\": \"example\",\n            \"addressLine1\": \"example\",\n            \"addressLine2\": \"example\",\n            \"city\": \"example\",\n            \"state\": \"example\",\n            \"countryCode\": \"AW\",\n            \"postalCode\": \"example\"\n        },\n        \"shippingAddress\": {\n            \"firstName\": \"example\",\n            \"lastName\": \"example\",\n            \"addressLine1\": \"example\",\n            \"addressLine2\": \"example\",\n            \"city\": \"example\",\n            \"state\": \"example\",\n            \"countryCode\": \"AW\",\n            \"postalCode\": \"example\"\n        },\n        \"taxId\": \"example\",\n        \"nationalDocumentId\": \"example\"\n    },\n    \"countryCode\": \"AW\",\n    \"fees\": [\n        {\n            \"amount\": 0,\n            \"type\": \"example\",\n            \"description\": \"example\"\n        }\n    ],\n    \"shipping\": {\n        \"amount\": 0\n    },\n    \"paymentMethod\": {\n        \"paymentMethodType\": \"PAYMENT_CARD\",\n        \"paymentMethodData\": {\n            \"first6Digits\": \"example\",\n            \"last4Digits\": \"example\",\n            \"expirationMonth\": \"example\",\n            \"expirationYear\": \"example\",\n            \"cardholderName\": \"example\",\n            \"network\": \"example\",\n            \"isNetworkTokenized\": true,\n            \"binData\": {\n                \"network\": \"AMEX\",\n                \"issuerCountryCode\": \"AW\",\n                \"issuerName\": \"example\",\n                \"issuerCurrencyCode\": \"AED\",\n                \"regionalRestriction\": \"DOMESTIC_USE_ONLY\",\n                \"accountNumberType\": \"PRIMARY_ACCOUNT_NUMBER\",\n                \"accountFundingType\": \"CREDIT\",\n                \"prepaidReloadableIndicator\": \"RELOADABLE\",\n                \"productUsageType\": \"CONSUMER\",\n                \"productCode\": \"example\",\n                \"productName\": \"example\"\n            }\n        },\n        \"descriptor\": \"example\",\n        \"paymentMethodToken\": \"example\",\n        \"isVaulted\": true,\n        \"analyticsId\": \"example\",\n        \"threeDSecureAuthentication\": {\n            \"responseCode\": \"NOT_PERFORMED\",\n            \"reasonCode\": {\n                \"0\": \"G\",\n                \"1\": \"A\",\n                \"2\": \"T\",\n                \"3\": \"E\",\n                \"4\": \"W\",\n                \"5\": \"A\",\n                \"6\": \"Y\",\n                \"7\": \"_\",\n                \"8\": \"U\",\n                \"9\": \"N\",\n                \"10\": \"A\",\n                \"11\": \"V\",\n                \"12\": \"A\",\n                \"13\": \"I\",\n                \"14\": \"L\",\n                \"15\": \"A\",\n                \"16\": \"B\",\n                \"17\": \"L\",\n                \"18\": \"E\",\n                \"type\": \"Skipped\"\n            },\n            \"reasonText\": \"example\",\n            \"protocolVersion\": \"example\",\n            \"challengeIssued\": true\n        }\n    },\n    \"requiredAction\": {\n        \"name\": \"example\",\n        \"description\": \"example\",\n        \"clientToken\": \"example\"\n    },\n    \"statusReason\": {\n        \"type\": \"APPLICATION_ERROR\",\n        \"declineType\": \"SOFT_DECLINE\",\n        \"code\": \"ERROR\",\n        \"message\": \"example\"\n    },\n    \"transactions\": [\n        {\n            \"date\": \"example\",\n            \"amount\": 0,\n            \"currencyCode\": \"AED\",\n            \"type\": \"SALE\",\n            \"processorTransactionId\": \"example\",\n            \"processorName\": \"example\",\n            \"processorMerchantId\": \"example\",\n            \"processorStatus\": \"PENDING\",\n            \"processorStatusReason\": {\n                \"type\": \"APPLICATION_ERROR\",\n                \"declineType\": \"SOFT_DECLINE\",\n                \"code\": \"ERROR\",\n                \"message\": \"example\"\n            }\n        }\n    ],\n    \"processor\": {\n        \"name\": \"example\",\n        \"processorMerchantId\": \"example\",\n        \"amountCaptured\": 0,\n        \"amountRefunded\": 0\n    },\n    \"customer\": {\n        \"emailAddress\": \"example\",\n        \"mobileNumber\": \"example\",\n        \"firstName\": \"example\",\n        \"lastName\": \"example\",\n        \"billingAddress\": {\n            \"firstName\": \"example\",\n            \"lastName\": \"example\",\n            \"addressLine1\": \"example\",\n            \"addressLine2\": \"example\",\n            \"city\": \"example\",\n            \"state\": \"example\",\n            \"countryCode\": \"AW\",\n            \"postalCode\": \"example\"\n        },\n        \"shippingAddress\": {\n            \"firstName\": \"example\",\n            \"lastName\": \"example\",\n            \"addressLine1\": \"example\",\n            \"addressLine2\": \"example\",\n            \"city\": \"example\",\n            \"state\": \"example\",\n            \"countryCode\": \"AW\",\n            \"postalCode\": \"example\"\n        },\n        \"taxId\": \"example\",\n        \"nationalDocumentId\": \"example\"\n    },\n    \"metadata\": {\n        \"example\": \"UNKNOWN\"\n    }\n}",
+                            "_postman_previewlanguage": "json"
+                        }
+                    ]
+                },
+                {
+                    "name": "capture",
+                    "request": {
+                        "description": "If you have successfully authorized a payment, you can now\nfully capture, or partially capture funds from the authorized payment, depending\non whether your selected payment processor supports it. The payment will\nbe updated to SETTLED or SETTLING, depending on the payment method type.\n\nThe payload sent in this capture request is completely optional. If you don't\nsend a payload with the capture request, the full amount that was authorized\nwill be sent for capture. Below are the available payload attributes, which\ngive you more granular control when capturing funds, if you require it.\n",
+                        "url": {
+                            "raw": "{{origin}}/payments/:id/capture",
+                            "host": [
+                                "{{origin}}"
+                            ],
+                            "path": [
+                                "payments",
+                                ":id",
+                                "capture"
+                            ],
+                            "query": []
+                        },
+                        "header": [
+                            {
+                                "key": "X-API-KEY",
+                                "value": "{{X-API-KEY}}",
+                                "type": "string"
+                            },
+                            {
+                                "key": "X-Idempotency-Key",
+                                "type": "text",
+                                "value": "\"example\""
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"amount\": 0,\n    \"final\": true\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "response": [
+                        {
+                            "name": "Successful capture",
+                            "code": 200,
+                            "originalRequest": {
+                                "description": "If you have successfully authorized a payment, you can now\nfully capture, or partially capture funds from the authorized payment, depending\non whether your selected payment processor supports it. The payment will\nbe updated to SETTLED or SETTLING, depending on the payment method type.\n\nThe payload sent in this capture request is completely optional. If you don't\nsend a payload with the capture request, the full amount that was authorized\nwill be sent for capture. Below are the available payload attributes, which\ngive you more granular control when capturing funds, if you require it.\n",
+                                "url": {
+                                    "raw": "{{origin}}/payments/:id/capture",
+                                    "host": [
+                                        "{{origin}}"
+                                    ],
+                                    "path": [
+                                        "payments",
+                                        ":id",
+                                        "capture"
+                                    ],
+                                    "query": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "X-API-KEY",
+                                        "value": "{{X-API-KEY}}",
+                                        "type": "string"
+                                    },
+                                    {
+                                        "key": "X-Idempotency-Key",
+                                        "type": "text",
+                                        "value": "\"example\""
+                                    }
+                                ],
+                                "method": "POST",
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n    \"amount\": 0,\n    \"final\": true\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                }
+                            },
+                            "body": "{\n    \"id\": \"example\",\n    \"date\": \"2022-11-01T23:13:45.051Z\",\n    \"status\": \"PENDING\",\n    \"orderId\": \"example\",\n    \"customerId\": \"example\",\n    \"currencyCode\": \"AED\",\n    \"amount\": 0,\n    \"order\": {\n        \"emailAddress\": \"example\",\n        \"mobileNumber\": \"example\",\n        \"firstName\": \"example\",\n        \"lastName\": \"example\",\n        \"billingAddress\": {\n            \"firstName\": \"example\",\n            \"lastName\": \"example\",\n            \"addressLine1\": \"example\",\n            \"addressLine2\": \"example\",\n            \"city\": \"example\",\n            \"state\": \"example\",\n            \"countryCode\": \"AW\",\n            \"postalCode\": \"example\"\n        },\n        \"shippingAddress\": {\n            \"firstName\": \"example\",\n            \"lastName\": \"example\",\n            \"addressLine1\": \"example\",\n            \"addressLine2\": \"example\",\n            \"city\": \"example\",\n            \"state\": \"example\",\n            \"countryCode\": \"AW\",\n            \"postalCode\": \"example\"\n        },\n        \"taxId\": \"example\",\n        \"nationalDocumentId\": \"example\"\n    },\n    \"countryCode\": \"AW\",\n    \"fees\": [\n        {\n            \"amount\": 0,\n            \"type\": \"example\",\n            \"description\": \"example\"\n        }\n    ],\n    \"shipping\": {\n        \"amount\": 0\n    },\n    \"paymentMethod\": {\n        \"paymentMethodType\": \"PAYMENT_CARD\",\n        \"paymentMethodData\": {\n            \"first6Digits\": \"example\",\n            \"last4Digits\": \"example\",\n            \"expirationMonth\": \"example\",\n            \"expirationYear\": \"example\",\n            \"cardholderName\": \"example\",\n            \"network\": \"example\",\n            \"isNetworkTokenized\": true,\n            \"binData\": {\n                \"network\": \"AMEX\",\n                \"issuerCountryCode\": \"AW\",\n                \"issuerName\": \"example\",\n                \"issuerCurrencyCode\": \"AED\",\n                \"regionalRestriction\": \"DOMESTIC_USE_ONLY\",\n                \"accountNumberType\": \"PRIMARY_ACCOUNT_NUMBER\",\n                \"accountFundingType\": \"CREDIT\",\n                \"prepaidReloadableIndicator\": \"RELOADABLE\",\n                \"productUsageType\": \"CONSUMER\",\n                \"productCode\": \"example\",\n                \"productName\": \"example\"\n            }\n        },\n        \"descriptor\": \"example\",\n        \"paymentMethodToken\": \"example\",\n        \"isVaulted\": true,\n        \"analyticsId\": \"example\",\n        \"threeDSecureAuthentication\": {\n            \"responseCode\": \"NOT_PERFORMED\",\n            \"reasonCode\": {\n                \"0\": \"G\",\n                \"1\": \"A\",\n                \"2\": \"T\",\n                \"3\": \"E\",\n                \"4\": \"W\",\n                \"5\": \"A\",\n                \"6\": \"Y\",\n                \"7\": \"_\",\n                \"8\": \"U\",\n                \"9\": \"N\",\n                \"10\": \"A\",\n                \"11\": \"V\",\n                \"12\": \"A\",\n                \"13\": \"I\",\n                \"14\": \"L\",\n                \"15\": \"A\",\n                \"16\": \"B\",\n                \"17\": \"L\",\n                \"18\": \"E\",\n                \"type\": \"Skipped\"\n            },\n            \"reasonText\": \"example\",\n            \"protocolVersion\": \"example\",\n            \"challengeIssued\": true\n        }\n    },\n    \"requiredAction\": {\n        \"name\": \"example\",\n        \"description\": \"example\",\n        \"clientToken\": \"example\"\n    },\n    \"statusReason\": {\n        \"type\": \"APPLICATION_ERROR\",\n        \"declineType\": \"SOFT_DECLINE\",\n        \"code\": \"ERROR\",\n        \"message\": \"example\"\n    },\n    \"transactions\": [\n        {\n            \"date\": \"example\",\n            \"amount\": 0,\n            \"currencyCode\": \"AED\",\n            \"type\": \"SALE\",\n            \"processorTransactionId\": \"example\",\n            \"processorName\": \"example\",\n            \"processorMerchantId\": \"example\",\n            \"processorStatus\": \"PENDING\",\n            \"processorStatusReason\": {\n                \"type\": \"APPLICATION_ERROR\",\n                \"declineType\": \"SOFT_DECLINE\",\n                \"code\": \"ERROR\",\n                \"message\": \"example\"\n            }\n        }\n    ],\n    \"processor\": {\n        \"name\": \"example\",\n        \"processorMerchantId\": \"example\",\n        \"amountCaptured\": 0,\n        \"amountRefunded\": 0\n    },\n    \"customer\": {\n        \"emailAddress\": \"example\",\n        \"mobileNumber\": \"example\",\n        \"firstName\": \"example\",\n        \"lastName\": \"example\",\n        \"billingAddress\": {\n            \"firstName\": \"example\",\n            \"lastName\": \"example\",\n            \"addressLine1\": \"example\",\n            \"addressLine2\": \"example\",\n            \"city\": \"example\",\n            \"state\": \"example\",\n            \"countryCode\": \"AW\",\n            \"postalCode\": \"example\"\n        },\n        \"shippingAddress\": {\n            \"firstName\": \"example\",\n            \"lastName\": \"example\",\n            \"addressLine1\": \"example\",\n            \"addressLine2\": \"example\",\n            \"city\": \"example\",\n            \"state\": \"example\",\n            \"countryCode\": \"AW\",\n            \"postalCode\": \"example\"\n        },\n        \"taxId\": \"example\",\n        \"nationalDocumentId\": \"example\"\n    },\n    \"metadata\": {\n        \"example\": \"UNKNOWN\"\n    }\n}",
+                            "_postman_previewlanguage": "json"
+                        }
+                    ]
+                },
+                {
+                    "name": "cancel",
+                    "request": {
+                        "description": "Provided the payment has not reached `SETTLED` status, Primer will\nsend a \"void\" request to the payment processor, thereby cancelling the payment\nand releasing the hold on customer funds. Upon success, the payment will transition\nto `CANCELLED`. The payload is optional.\n",
+                        "url": {
+                            "raw": "{{origin}}/payments/:id/cancel",
+                            "host": [
+                                "{{origin}}"
+                            ],
+                            "path": [
+                                "payments",
+                                ":id",
+                                "cancel"
+                            ],
+                            "query": []
+                        },
+                        "header": [
+                            {
+                                "key": "X-API-KEY",
+                                "value": "{{X-API-KEY}}",
+                                "type": "string"
+                            },
+                            {
+                                "key": "X-Idempotency-Key",
+                                "type": "text",
+                                "value": "\"example\""
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"reason\": \"example\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "response": [
+                        {
+                            "name": "Successful cancel",
+                            "code": 200,
+                            "originalRequest": {
+                                "description": "Provided the payment has not reached `SETTLED` status, Primer will\nsend a \"void\" request to the payment processor, thereby cancelling the payment\nand releasing the hold on customer funds. Upon success, the payment will transition\nto `CANCELLED`. The payload is optional.\n",
+                                "url": {
+                                    "raw": "{{origin}}/payments/:id/cancel",
+                                    "host": [
+                                        "{{origin}}"
+                                    ],
+                                    "path": [
+                                        "payments",
+                                        ":id",
+                                        "cancel"
+                                    ],
+                                    "query": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "X-API-KEY",
+                                        "value": "{{X-API-KEY}}",
+                                        "type": "string"
+                                    },
+                                    {
+                                        "key": "X-Idempotency-Key",
+                                        "type": "text",
+                                        "value": "\"example\""
+                                    }
+                                ],
+                                "method": "POST",
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n    \"reason\": \"example\"\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                }
+                            },
+                            "body": "{\n    \"id\": \"example\",\n    \"date\": \"2022-11-01T23:13:45.052Z\",\n    \"status\": \"PENDING\",\n    \"orderId\": \"example\",\n    \"customerId\": \"example\",\n    \"currencyCode\": \"AED\",\n    \"amount\": 0,\n    \"order\": {\n        \"emailAddress\": \"example\",\n        \"mobileNumber\": \"example\",\n        \"firstName\": \"example\",\n        \"lastName\": \"example\",\n        \"billingAddress\": {\n            \"firstName\": \"example\",\n            \"lastName\": \"example\",\n            \"addressLine1\": \"example\",\n            \"addressLine2\": \"example\",\n            \"city\": \"example\",\n            \"state\": \"example\",\n            \"countryCode\": \"AW\",\n            \"postalCode\": \"example\"\n        },\n        \"shippingAddress\": {\n            \"firstName\": \"example\",\n            \"lastName\": \"example\",\n            \"addressLine1\": \"example\",\n            \"addressLine2\": \"example\",\n            \"city\": \"example\",\n            \"state\": \"example\",\n            \"countryCode\": \"AW\",\n            \"postalCode\": \"example\"\n        },\n        \"taxId\": \"example\",\n        \"nationalDocumentId\": \"example\"\n    },\n    \"countryCode\": \"AW\",\n    \"fees\": [\n        {\n            \"amount\": 0,\n            \"type\": \"example\",\n            \"description\": \"example\"\n        }\n    ],\n    \"shipping\": {\n        \"amount\": 0\n    },\n    \"paymentMethod\": {\n        \"paymentMethodType\": \"PAYMENT_CARD\",\n        \"paymentMethodData\": {\n            \"first6Digits\": \"example\",\n            \"last4Digits\": \"example\",\n            \"expirationMonth\": \"example\",\n            \"expirationYear\": \"example\",\n            \"cardholderName\": \"example\",\n            \"network\": \"example\",\n            \"isNetworkTokenized\": true,\n            \"binData\": {\n                \"network\": \"AMEX\",\n                \"issuerCountryCode\": \"AW\",\n                \"issuerName\": \"example\",\n                \"issuerCurrencyCode\": \"AED\",\n                \"regionalRestriction\": \"DOMESTIC_USE_ONLY\",\n                \"accountNumberType\": \"PRIMARY_ACCOUNT_NUMBER\",\n                \"accountFundingType\": \"CREDIT\",\n                \"prepaidReloadableIndicator\": \"RELOADABLE\",\n                \"productUsageType\": \"CONSUMER\",\n                \"productCode\": \"example\",\n                \"productName\": \"example\"\n            }\n        },\n        \"descriptor\": \"example\",\n        \"paymentMethodToken\": \"example\",\n        \"isVaulted\": true,\n        \"analyticsId\": \"example\",\n        \"threeDSecureAuthentication\": {\n            \"responseCode\": \"NOT_PERFORMED\",\n            \"reasonCode\": {\n                \"0\": \"G\",\n                \"1\": \"A\",\n                \"2\": \"T\",\n                \"3\": \"E\",\n                \"4\": \"W\",\n                \"5\": \"A\",\n                \"6\": \"Y\",\n                \"7\": \"_\",\n                \"8\": \"U\",\n                \"9\": \"N\",\n                \"10\": \"A\",\n                \"11\": \"V\",\n                \"12\": \"A\",\n                \"13\": \"I\",\n                \"14\": \"L\",\n                \"15\": \"A\",\n                \"16\": \"B\",\n                \"17\": \"L\",\n                \"18\": \"E\",\n                \"type\": \"Skipped\"\n            },\n            \"reasonText\": \"example\",\n            \"protocolVersion\": \"example\",\n            \"challengeIssued\": true\n        }\n    },\n    \"requiredAction\": {\n        \"name\": \"example\",\n        \"description\": \"example\",\n        \"clientToken\": \"example\"\n    },\n    \"statusReason\": {\n        \"type\": \"APPLICATION_ERROR\",\n        \"declineType\": \"SOFT_DECLINE\",\n        \"code\": \"ERROR\",\n        \"message\": \"example\"\n    },\n    \"transactions\": [\n        {\n            \"date\": \"example\",\n            \"amount\": 0,\n            \"currencyCode\": \"AED\",\n            \"type\": \"SALE\",\n            \"processorTransactionId\": \"example\",\n            \"processorName\": \"example\",\n            \"processorMerchantId\": \"example\",\n            \"processorStatus\": \"PENDING\",\n            \"processorStatusReason\": {\n                \"type\": \"APPLICATION_ERROR\",\n                \"declineType\": \"SOFT_DECLINE\",\n                \"code\": \"ERROR\",\n                \"message\": \"example\"\n            }\n        }\n    ],\n    \"processor\": {\n        \"name\": \"example\",\n        \"processorMerchantId\": \"example\",\n        \"amountCaptured\": 0,\n        \"amountRefunded\": 0\n    },\n    \"customer\": {\n        \"emailAddress\": \"example\",\n        \"mobileNumber\": \"example\",\n        \"firstName\": \"example\",\n        \"lastName\": \"example\",\n        \"billingAddress\": {\n            \"firstName\": \"example\",\n            \"lastName\": \"example\",\n            \"addressLine1\": \"example\",\n            \"addressLine2\": \"example\",\n            \"city\": \"example\",\n            \"state\": \"example\",\n            \"countryCode\": \"AW\",\n            \"postalCode\": \"example\"\n        },\n        \"shippingAddress\": {\n            \"firstName\": \"example\",\n            \"lastName\": \"example\",\n            \"addressLine1\": \"example\",\n            \"addressLine2\": \"example\",\n            \"city\": \"example\",\n            \"state\": \"example\",\n            \"countryCode\": \"AW\",\n            \"postalCode\": \"example\"\n        },\n        \"taxId\": \"example\",\n        \"nationalDocumentId\": \"example\"\n    },\n    \"metadata\": {\n        \"example\": \"UNKNOWN\"\n    }\n}",
+                            "_postman_previewlanguage": "json"
+                        }
+                    ]
+                },
+                {
+                    "name": "refund",
+                    "request": {
+                        "description": "By default, this request will refund the full amount. Optionally, pass in a lesser amount for a partial refund.",
+                        "url": {
+                            "raw": "{{origin}}/payments/:id/refund",
+                            "host": [
+                                "{{origin}}"
+                            ],
+                            "path": [
+                                "payments",
+                                ":id",
+                                "refund"
+                            ],
+                            "query": []
+                        },
+                        "header": [
+                            {
+                                "key": "X-API-KEY",
+                                "value": "{{X-API-KEY}}",
+                                "type": "string"
+                            },
+                            {
+                                "key": "X-Idempotency-Key",
+                                "type": "text",
+                                "value": "\"example\""
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"amount\": 0,\n    \"orderId\": \"example\",\n    \"reason\": \"example\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "response": [
+                        {
+                            "name": "Successful refund",
+                            "code": 200,
+                            "originalRequest": {
+                                "description": "By default, this request will refund the full amount. Optionally, pass in a lesser amount for a partial refund.",
+                                "url": {
+                                    "raw": "{{origin}}/payments/:id/refund",
+                                    "host": [
+                                        "{{origin}}"
+                                    ],
+                                    "path": [
+                                        "payments",
+                                        ":id",
+                                        "refund"
+                                    ],
+                                    "query": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "X-API-KEY",
+                                        "value": "{{X-API-KEY}}",
+                                        "type": "string"
+                                    },
+                                    {
+                                        "key": "X-Idempotency-Key",
+                                        "type": "text",
+                                        "value": "\"example\""
+                                    }
+                                ],
+                                "method": "POST",
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n    \"amount\": 0,\n    \"orderId\": \"example\",\n    \"reason\": \"example\"\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                }
+                            },
+                            "body": "{\n    \"id\": \"example\",\n    \"date\": \"2022-11-01T23:13:45.054Z\",\n    \"status\": \"PENDING\",\n    \"orderId\": \"example\",\n    \"customerId\": \"example\",\n    \"currencyCode\": \"AED\",\n    \"amount\": 0,\n    \"order\": {\n        \"emailAddress\": \"example\",\n        \"mobileNumber\": \"example\",\n        \"firstName\": \"example\",\n        \"lastName\": \"example\",\n        \"billingAddress\": {\n            \"firstName\": \"example\",\n            \"lastName\": \"example\",\n            \"addressLine1\": \"example\",\n            \"addressLine2\": \"example\",\n            \"city\": \"example\",\n            \"state\": \"example\",\n            \"countryCode\": \"AW\",\n            \"postalCode\": \"example\"\n        },\n        \"shippingAddress\": {\n            \"firstName\": \"example\",\n            \"lastName\": \"example\",\n            \"addressLine1\": \"example\",\n            \"addressLine2\": \"example\",\n            \"city\": \"example\",\n            \"state\": \"example\",\n            \"countryCode\": \"AW\",\n            \"postalCode\": \"example\"\n        },\n        \"taxId\": \"example\",\n        \"nationalDocumentId\": \"example\"\n    },\n    \"countryCode\": \"AW\",\n    \"fees\": [\n        {\n            \"amount\": 0,\n            \"type\": \"example\",\n            \"description\": \"example\"\n        }\n    ],\n    \"shipping\": {\n        \"amount\": 0\n    },\n    \"paymentMethod\": {\n        \"paymentMethodType\": \"PAYMENT_CARD\",\n        \"paymentMethodData\": {\n            \"first6Digits\": \"example\",\n            \"last4Digits\": \"example\",\n            \"expirationMonth\": \"example\",\n            \"expirationYear\": \"example\",\n            \"cardholderName\": \"example\",\n            \"network\": \"example\",\n            \"isNetworkTokenized\": true,\n            \"binData\": {\n                \"network\": \"AMEX\",\n                \"issuerCountryCode\": \"AW\",\n                \"issuerName\": \"example\",\n                \"issuerCurrencyCode\": \"AED\",\n                \"regionalRestriction\": \"DOMESTIC_USE_ONLY\",\n                \"accountNumberType\": \"PRIMARY_ACCOUNT_NUMBER\",\n                \"accountFundingType\": \"CREDIT\",\n                \"prepaidReloadableIndicator\": \"RELOADABLE\",\n                \"productUsageType\": \"CONSUMER\",\n                \"productCode\": \"example\",\n                \"productName\": \"example\"\n            }\n        },\n        \"descriptor\": \"example\",\n        \"paymentMethodToken\": \"example\",\n        \"isVaulted\": true,\n        \"analyticsId\": \"example\",\n        \"threeDSecureAuthentication\": {\n            \"responseCode\": \"NOT_PERFORMED\",\n            \"reasonCode\": {\n                \"0\": \"G\",\n                \"1\": \"A\",\n                \"2\": \"T\",\n                \"3\": \"E\",\n                \"4\": \"W\",\n                \"5\": \"A\",\n                \"6\": \"Y\",\n                \"7\": \"_\",\n                \"8\": \"U\",\n                \"9\": \"N\",\n                \"10\": \"A\",\n                \"11\": \"V\",\n                \"12\": \"A\",\n                \"13\": \"I\",\n                \"14\": \"L\",\n                \"15\": \"A\",\n                \"16\": \"B\",\n                \"17\": \"L\",\n                \"18\": \"E\",\n                \"type\": \"Skipped\"\n            },\n            \"reasonText\": \"example\",\n            \"protocolVersion\": \"example\",\n            \"challengeIssued\": true\n        }\n    },\n    \"requiredAction\": {\n        \"name\": \"example\",\n        \"description\": \"example\",\n        \"clientToken\": \"example\"\n    },\n    \"statusReason\": {\n        \"type\": \"APPLICATION_ERROR\",\n        \"declineType\": \"SOFT_DECLINE\",\n        \"code\": \"ERROR\",\n        \"message\": \"example\"\n    },\n    \"transactions\": [\n        {\n            \"date\": \"example\",\n            \"amount\": 0,\n            \"currencyCode\": \"AED\",\n            \"type\": \"SALE\",\n            \"processorTransactionId\": \"example\",\n            \"processorName\": \"example\",\n            \"processorMerchantId\": \"example\",\n            \"processorStatus\": \"PENDING\",\n            \"processorStatusReason\": {\n                \"type\": \"APPLICATION_ERROR\",\n                \"declineType\": \"SOFT_DECLINE\",\n                \"code\": \"ERROR\",\n                \"message\": \"example\"\n            }\n        }\n    ],\n    \"processor\": {\n        \"name\": \"example\",\n        \"processorMerchantId\": \"example\",\n        \"amountCaptured\": 0,\n        \"amountRefunded\": 0\n    },\n    \"customer\": {\n        \"emailAddress\": \"example\",\n        \"mobileNumber\": \"example\",\n        \"firstName\": \"example\",\n        \"lastName\": \"example\",\n        \"billingAddress\": {\n            \"firstName\": \"example\",\n            \"lastName\": \"example\",\n            \"addressLine1\": \"example\",\n            \"addressLine2\": \"example\",\n            \"city\": \"example\",\n            \"state\": \"example\",\n            \"countryCode\": \"AW\",\n            \"postalCode\": \"example\"\n        },\n        \"shippingAddress\": {\n            \"firstName\": \"example\",\n            \"lastName\": \"example\",\n            \"addressLine1\": \"example\",\n            \"addressLine2\": \"example\",\n            \"city\": \"example\",\n            \"state\": \"example\",\n            \"countryCode\": \"AW\",\n            \"postalCode\": \"example\"\n        },\n        \"taxId\": \"example\",\n        \"nationalDocumentId\": \"example\"\n    },\n    \"metadata\": {\n        \"example\": \"UNKNOWN\"\n    }\n}",
+                            "_postman_previewlanguage": "json"
+                        }
+                    ]
+                },
+                {
+                    "name": "resume",
+                    "request": {
+                        "description": "Resume a payment's workflow execution from a paused state.\nThis is usually required when a Workflow was paused in order to get further information\nfrom the customer, or when waiting for an asynchronous response from a third party connection.\n",
+                        "url": {
+                            "raw": "{{origin}}/payments/:id/resume",
+                            "host": [
+                                "{{origin}}"
+                            ],
+                            "path": [
+                                "payments",
+                                ":id",
+                                "resume"
+                            ],
+                            "query": []
+                        },
+                        "header": [
+                            {
+                                "key": "X-API-KEY",
+                                "value": "{{X-API-KEY}}",
+                                "type": "string"
+                            },
+                            {
+                                "key": "X-Idempotency-Key",
+                                "type": "text",
+                                "value": "\"example\""
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"resumeToken\": \"example\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "response": [
+                        {
+                            "name": "Successful resume",
+                            "code": 200,
+                            "originalRequest": {
+                                "description": "Resume a payment's workflow execution from a paused state.\nThis is usually required when a Workflow was paused in order to get further information\nfrom the customer, or when waiting for an asynchronous response from a third party connection.\n",
+                                "url": {
+                                    "raw": "{{origin}}/payments/:id/resume",
+                                    "host": [
+                                        "{{origin}}"
+                                    ],
+                                    "path": [
+                                        "payments",
+                                        ":id",
+                                        "resume"
+                                    ],
+                                    "query": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "X-API-KEY",
+                                        "value": "{{X-API-KEY}}",
+                                        "type": "string"
+                                    },
+                                    {
+                                        "key": "X-Idempotency-Key",
+                                        "type": "text",
+                                        "value": "\"example\""
+                                    }
+                                ],
+                                "method": "POST",
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n    \"resumeToken\": \"example\"\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                }
+                            },
+                            "body": "{\n    \"id\": \"example\",\n    \"date\": \"2022-11-01T23:13:45.056Z\",\n    \"status\": \"PENDING\",\n    \"orderId\": \"example\",\n    \"customerId\": \"example\",\n    \"currencyCode\": \"AED\",\n    \"amount\": 0,\n    \"order\": {\n        \"emailAddress\": \"example\",\n        \"mobileNumber\": \"example\",\n        \"firstName\": \"example\",\n        \"lastName\": \"example\",\n        \"billingAddress\": {\n            \"firstName\": \"example\",\n            \"lastName\": \"example\",\n            \"addressLine1\": \"example\",\n            \"addressLine2\": \"example\",\n            \"city\": \"example\",\n            \"state\": \"example\",\n            \"countryCode\": \"AW\",\n            \"postalCode\": \"example\"\n        },\n        \"shippingAddress\": {\n            \"firstName\": \"example\",\n            \"lastName\": \"example\",\n            \"addressLine1\": \"example\",\n            \"addressLine2\": \"example\",\n            \"city\": \"example\",\n            \"state\": \"example\",\n            \"countryCode\": \"AW\",\n            \"postalCode\": \"example\"\n        },\n        \"taxId\": \"example\",\n        \"nationalDocumentId\": \"example\"\n    },\n    \"countryCode\": \"AW\",\n    \"fees\": [\n        {\n            \"amount\": 0,\n            \"type\": \"example\",\n            \"description\": \"example\"\n        }\n    ],\n    \"shipping\": {\n        \"amount\": 0\n    },\n    \"paymentMethod\": {\n        \"paymentMethodType\": \"PAYMENT_CARD\",\n        \"paymentMethodData\": {\n            \"first6Digits\": \"example\",\n            \"last4Digits\": \"example\",\n            \"expirationMonth\": \"example\",\n            \"expirationYear\": \"example\",\n            \"cardholderName\": \"example\",\n            \"network\": \"example\",\n            \"isNetworkTokenized\": true,\n            \"binData\": {\n                \"network\": \"AMEX\",\n                \"issuerCountryCode\": \"AW\",\n                \"issuerName\": \"example\",\n                \"issuerCurrencyCode\": \"AED\",\n                \"regionalRestriction\": \"DOMESTIC_USE_ONLY\",\n                \"accountNumberType\": \"PRIMARY_ACCOUNT_NUMBER\",\n                \"accountFundingType\": \"CREDIT\",\n                \"prepaidReloadableIndicator\": \"RELOADABLE\",\n                \"productUsageType\": \"CONSUMER\",\n                \"productCode\": \"example\",\n                \"productName\": \"example\"\n            }\n        },\n        \"descriptor\": \"example\",\n        \"paymentMethodToken\": \"example\",\n        \"isVaulted\": true,\n        \"analyticsId\": \"example\",\n        \"threeDSecureAuthentication\": {\n            \"responseCode\": \"NOT_PERFORMED\",\n            \"reasonCode\": {\n                \"0\": \"G\",\n                \"1\": \"A\",\n                \"2\": \"T\",\n                \"3\": \"E\",\n                \"4\": \"W\",\n                \"5\": \"A\",\n                \"6\": \"Y\",\n                \"7\": \"_\",\n                \"8\": \"U\",\n                \"9\": \"N\",\n                \"10\": \"A\",\n                \"11\": \"V\",\n                \"12\": \"A\",\n                \"13\": \"I\",\n                \"14\": \"L\",\n                \"15\": \"A\",\n                \"16\": \"B\",\n                \"17\": \"L\",\n                \"18\": \"E\",\n                \"type\": \"Skipped\"\n            },\n            \"reasonText\": \"example\",\n            \"protocolVersion\": \"example\",\n            \"challengeIssued\": true\n        }\n    },\n    \"requiredAction\": {\n        \"name\": \"example\",\n        \"description\": \"example\",\n        \"clientToken\": \"example\"\n    },\n    \"statusReason\": {\n        \"type\": \"APPLICATION_ERROR\",\n        \"declineType\": \"SOFT_DECLINE\",\n        \"code\": \"ERROR\",\n        \"message\": \"example\"\n    },\n    \"transactions\": [\n        {\n            \"date\": \"example\",\n            \"amount\": 0,\n            \"currencyCode\": \"AED\",\n            \"type\": \"SALE\",\n            \"processorTransactionId\": \"example\",\n            \"processorName\": \"example\",\n            \"processorMerchantId\": \"example\",\n            \"processorStatus\": \"PENDING\",\n            \"processorStatusReason\": {\n                \"type\": \"APPLICATION_ERROR\",\n                \"declineType\": \"SOFT_DECLINE\",\n                \"code\": \"ERROR\",\n                \"message\": \"example\"\n            }\n        }\n    ],\n    \"processor\": {\n        \"name\": \"example\",\n        \"processorMerchantId\": \"example\",\n        \"amountCaptured\": 0,\n        \"amountRefunded\": 0\n    },\n    \"customer\": {\n        \"emailAddress\": \"example\",\n        \"mobileNumber\": \"example\",\n        \"firstName\": \"example\",\n        \"lastName\": \"example\",\n        \"billingAddress\": {\n            \"firstName\": \"example\",\n            \"lastName\": \"example\",\n            \"addressLine1\": \"example\",\n            \"addressLine2\": \"example\",\n            \"city\": \"example\",\n            \"state\": \"example\",\n            \"countryCode\": \"AW\",\n            \"postalCode\": \"example\"\n        },\n        \"shippingAddress\": {\n            \"firstName\": \"example\",\n            \"lastName\": \"example\",\n            \"addressLine1\": \"example\",\n            \"addressLine2\": \"example\",\n            \"city\": \"example\",\n            \"state\": \"example\",\n            \"countryCode\": \"AW\",\n            \"postalCode\": \"example\"\n        },\n        \"taxId\": \"example\",\n        \"nationalDocumentId\": \"example\"\n    },\n    \"metadata\": {\n        \"example\": \"UNKNOWN\"\n    }\n}",
+                            "_postman_previewlanguage": "json"
+                        }
+                    ]
+                },
+                {
+                    "name": "get",
+                    "request": {
+                        "description": "Retrieve a payment by its ID.",
+                        "url": {
+                            "raw": "{{origin}}/payments/:id/resume",
+                            "host": [
+                                "{{origin}}"
+                            ],
+                            "path": [
+                                "payments",
+                                ":id",
+                                "resume"
+                            ],
+                            "query": []
+                        },
+                        "header": [
+                            {
+                                "key": "X-API-KEY",
+                                "value": "{{X-API-KEY}}",
+                                "type": "string"
+                            },
+                            {
+                                "key": "X-Idempotency-Key",
+                                "type": "text",
+                                "value": "\"example\""
+                            }
+                        ],
+                        "method": "GET"
+                    },
+                    "response": [
+                        {
+                            "name": "Successful get",
+                            "code": 200,
+                            "originalRequest": {
+                                "description": "Retrieve a payment by its ID.",
+                                "url": {
+                                    "raw": "{{origin}}/payments/:id/resume",
+                                    "host": [
+                                        "{{origin}}"
+                                    ],
+                                    "path": [
+                                        "payments",
+                                        ":id",
+                                        "resume"
+                                    ],
+                                    "query": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "X-API-KEY",
+                                        "value": "{{X-API-KEY}}",
+                                        "type": "string"
+                                    },
+                                    {
+                                        "key": "X-Idempotency-Key",
+                                        "type": "text",
+                                        "value": "\"example\""
+                                    }
+                                ],
+                                "method": "GET"
+                            },
+                            "body": "{\n    \"id\": \"example\",\n    \"date\": \"2022-11-01T23:13:45.061Z\",\n    \"status\": \"PENDING\",\n    \"orderId\": \"example\",\n    \"customerId\": \"example\",\n    \"currencyCode\": \"AED\",\n    \"amount\": 0,\n    \"order\": {\n        \"emailAddress\": \"example\",\n        \"mobileNumber\": \"example\",\n        \"firstName\": \"example\",\n        \"lastName\": \"example\",\n        \"billingAddress\": {\n            \"firstName\": \"example\",\n            \"lastName\": \"example\",\n            \"addressLine1\": \"example\",\n            \"addressLine2\": \"example\",\n            \"city\": \"example\",\n            \"state\": \"example\",\n            \"countryCode\": \"AW\",\n            \"postalCode\": \"example\"\n        },\n        \"shippingAddress\": {\n            \"firstName\": \"example\",\n            \"lastName\": \"example\",\n            \"addressLine1\": \"example\",\n            \"addressLine2\": \"example\",\n            \"city\": \"example\",\n            \"state\": \"example\",\n            \"countryCode\": \"AW\",\n            \"postalCode\": \"example\"\n        },\n        \"taxId\": \"example\",\n        \"nationalDocumentId\": \"example\"\n    },\n    \"countryCode\": \"AW\",\n    \"fees\": [\n        {\n            \"amount\": 0,\n            \"type\": \"example\",\n            \"description\": \"example\"\n        }\n    ],\n    \"shipping\": {\n        \"amount\": 0\n    },\n    \"paymentMethod\": {\n        \"paymentMethodType\": \"PAYMENT_CARD\",\n        \"paymentMethodData\": {\n            \"first6Digits\": \"example\",\n            \"last4Digits\": \"example\",\n            \"expirationMonth\": \"example\",\n            \"expirationYear\": \"example\",\n            \"cardholderName\": \"example\",\n            \"network\": \"example\",\n            \"isNetworkTokenized\": true,\n            \"binData\": {\n                \"network\": \"AMEX\",\n                \"issuerCountryCode\": \"AW\",\n                \"issuerName\": \"example\",\n                \"issuerCurrencyCode\": \"AED\",\n                \"regionalRestriction\": \"DOMESTIC_USE_ONLY\",\n                \"accountNumberType\": \"PRIMARY_ACCOUNT_NUMBER\",\n                \"accountFundingType\": \"CREDIT\",\n                \"prepaidReloadableIndicator\": \"RELOADABLE\",\n                \"productUsageType\": \"CONSUMER\",\n                \"productCode\": \"example\",\n                \"productName\": \"example\"\n            }\n        },\n        \"descriptor\": \"example\",\n        \"paymentMethodToken\": \"example\",\n        \"isVaulted\": true,\n        \"analyticsId\": \"example\",\n        \"threeDSecureAuthentication\": {\n            \"responseCode\": \"NOT_PERFORMED\",\n            \"reasonCode\": {\n                \"0\": \"G\",\n                \"1\": \"A\",\n                \"2\": \"T\",\n                \"3\": \"E\",\n                \"4\": \"W\",\n                \"5\": \"A\",\n                \"6\": \"Y\",\n                \"7\": \"_\",\n                \"8\": \"U\",\n                \"9\": \"N\",\n                \"10\": \"A\",\n                \"11\": \"V\",\n                \"12\": \"A\",\n                \"13\": \"I\",\n                \"14\": \"L\",\n                \"15\": \"A\",\n                \"16\": \"B\",\n                \"17\": \"L\",\n                \"18\": \"E\",\n                \"type\": \"Skipped\"\n            },\n            \"reasonText\": \"example\",\n            \"protocolVersion\": \"example\",\n            \"challengeIssued\": true\n        }\n    },\n    \"requiredAction\": {\n        \"name\": \"example\",\n        \"description\": \"example\",\n        \"clientToken\": \"example\"\n    },\n    \"statusReason\": {\n        \"type\": \"APPLICATION_ERROR\",\n        \"declineType\": \"SOFT_DECLINE\",\n        \"code\": \"ERROR\",\n        \"message\": \"example\"\n    },\n    \"transactions\": [\n        {\n            \"date\": \"example\",\n            \"amount\": 0,\n            \"currencyCode\": \"AED\",\n            \"type\": \"SALE\",\n            \"processorTransactionId\": \"example\",\n            \"processorName\": \"example\",\n            \"processorMerchantId\": \"example\",\n            \"processorStatus\": \"PENDING\",\n            \"processorStatusReason\": {\n                \"type\": \"APPLICATION_ERROR\",\n                \"declineType\": \"SOFT_DECLINE\",\n                \"code\": \"ERROR\",\n                \"message\": \"example\"\n            }\n        }\n    ],\n    \"processor\": {\n        \"name\": \"example\",\n        \"processorMerchantId\": \"example\",\n        \"amountCaptured\": 0,\n        \"amountRefunded\": 0\n    },\n    \"customer\": {\n        \"emailAddress\": \"example\",\n        \"mobileNumber\": \"example\",\n        \"firstName\": \"example\",\n        \"lastName\": \"example\",\n        \"billingAddress\": {\n            \"firstName\": \"example\",\n            \"lastName\": \"example\",\n            \"addressLine1\": \"example\",\n            \"addressLine2\": \"example\",\n            \"city\": \"example\",\n            \"state\": \"example\",\n            \"countryCode\": \"AW\",\n            \"postalCode\": \"example\"\n        },\n        \"shippingAddress\": {\n            \"firstName\": \"example\",\n            \"lastName\": \"example\",\n            \"addressLine1\": \"example\",\n            \"addressLine2\": \"example\",\n            \"city\": \"example\",\n            \"state\": \"example\",\n            \"countryCode\": \"AW\",\n            \"postalCode\": \"example\"\n        },\n        \"taxId\": \"example\",\n        \"nationalDocumentId\": \"example\"\n    },\n    \"metadata\": {\n        \"example\": \"UNKNOWN\"\n    }\n}",
+                            "_postman_previewlanguage": "json"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
